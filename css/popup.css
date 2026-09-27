@@ -1,16 +1,23 @@
+/* =========================================
+   POPUPS
+   ERROR.TIMELINE_NOT_FOUND
+   ========================================= */
+
 .popup {
-	border: 4px solid;
+	border: 3px solid var(--error);
 	border-radius: 7px;
 	width: 300px;
 	min-height: 60px;
-	color: #000000;
+	color: #fff;
 	display: block;
 	margin-top: 30px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	border-color: rgba(0, 0, 0, 0.25);
+	padding: 15px 10px;
+	background: rgba(5,5,8,.95);
+	box-shadow:
+		0 0 8px var(--error),
+		inset 0 0 8px rgba(255,59,129,.15);
+	font-family: "Lucida Console","Courier New",monospace;
 }
-
 
 .popup-container {
 	position: absolute;
@@ -20,33 +27,37 @@
 }
 
 .achievement-popup {
-	background: #7182BC;
+	background: rgba(0,255,255,.15);
+	border-color: var(--points);
+	box-shadow: 0 0 10px var(--points);
 }
 
 .milestone-popup {
-	background: #D1C23C;
+	background: rgba(255,191,0,.15);
+	border-color: var(--warning);
+	box-shadow: 0 0 10px var(--warning);
 }
 
-.fade-enter-active, .fade-leave-active {
-	transition: opacity .3s
-}
-
+.fade-enter-active,
+.fade-leave-active,
 .fade-transition {
-	transition: opacity .3s
+	transition: opacity .3s;
 }
 
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-	opacity: 0
+.fade-enter,
+.fade-leave-to {
+	opacity: 0;
 }
 
 .redtext {
-	color: red;
+	color: var(--error);
+	text-shadow: 0 0 5px var(--error);
 }
 
 .particle {
 	background-color: transparent;
 	display: block;
-	position:absolute;
+	position: absolute;
 	z-index: 99999;
-	background-size:contain;
+	background-size: contain;
 }
