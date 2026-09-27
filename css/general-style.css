@@ -1,41 +1,62 @@
+/* =========================================
+   THE MILESTONE TREE
+   ERROR.TIMELINE_NOT_FOUND
+   GENERAL STYLE
+   Pink = Error / Corruption
+   Cyan = Restored / Valid
+   ========================================= */
+
 /* Global things */
 body {
 	color: var(--color);
 	overflow: hidden;
-	--background: #0f0f0f;
+	--background: #08080a;
 	--color: #dfdfdf;
-	--points: #ffffff;
-	background: var(--background)
+	--points: #00ffff;
+	--error: #ff3b81;
+	--restored: #00ffff;
+	--warning: #ffbf00;
+	background: radial-gradient(circle, #151018 0%, var(--background) 70%);
 }
 
 /* General text */
 h1, h2, h3, b, input {
 	display: inline;
-	font-family: "Lucida Console", "Courier New", monospace
+	font-family: "Lucida Console", "Courier New", monospace;
+	text-shadow: 1px 0 var(--error), -1px 0 var(--restored);
 }
 
-/* These are styles for different states of components. You can make layer-specific versions with .c.locked, for example */
+/* Different component states */
 .locked {
-	background-color: #bf8f8f;
+	background-color: rgba(255, 59, 129, 0.25);
+	border-color: var(--error);
 	cursor: not-allowed;
+	box-shadow: 0 0 6px var(--error);
 }
 
-/* Can meens can be clicked/bought/etc */
+/* Can means can be clicked/bought/etc */
 .can {
 	cursor: pointer;
 }
 
 .can:hover {
 	transform: scale(1.15, 1.15);
-	box-shadow: 0 0 20px var(--points)
+	box-shadow: 0 0 20px var(--points);
 }
 
+/* Restored / bought */
 .bought {
-	background-color: #77bf5f;
+	background-color: rgba(0, 255, 255, 0.2);
+	border-color: var(--restored);
 	cursor: default;
+	box-shadow: 0 0 8px var(--restored);
 }
 
+/* Main points display */
 #points {
 	color: var(--points);
-	text-shadow: 0 0 10px var(--points);
+	text-shadow:
+		0 0 5px var(--points),
+		0 0 10px var(--points),
+		1px 0 var(--error);
 }
