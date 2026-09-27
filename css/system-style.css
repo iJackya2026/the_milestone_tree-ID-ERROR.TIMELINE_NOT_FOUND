@@ -1,251 +1,63 @@
-* {
-	transition-duration: 0.5s;
-	text-align: center;
-	font-family: "Inconsolata", monospace;
-	font-weight: bold;
-	table-align: center;
-	margin: auto;
-	-webkit-text-size-adjust: none;
-	text-size-adjust: none;
+/* =========================================
+   POPUPS
+   ERROR.TIMELINE_NOT_FOUND
+   ========================================= */
 
+.popup {
+	border: 3px solid var(--error);
+	border-radius: 7px;
+	width: 300px;
+	min-height: 60px;
+	color: #fff;
+	display: block;
+	margin-top: 30px;
+	padding: 15px 10px;
+	background: rgba(5,5,8,.95);
+	box-shadow:
+		0 0 8px var(--error),
+		inset 0 0 8px rgba(255,59,129,.15);
+	font-family: "Lucida Console","Courier New",monospace;
 }
 
-*:focus {
-	outline: none;
-	webkit-outline: none;
-}
-
-html, body {
-	min-height: 100%;
-	height: 100%;
-}
-
-td {
-	padding: 0
-}
-
-.upgTable {
-	display: flex !important;
-	flex-flow: column wrap;
-	justify-content: center;
-	align-items: center;
-	max-width: 100%;
-	margin: 0 auto;
-}
-
-.upgRow {
-	display: flex !important;
-	flex-flow: row wrap;
-	justify-content: center;
-	align-items: center;
-	max-width: 100%;
-	margin: 0 auto;
-}
-
-.upgAlign {
-	vertical-align: 0
-}
-
-.bigUpgAlign {
-	vertical-align: 0
-}
-
-.treeThing {
-	margin: 0 10px 0 10px;
-	vertical-align: middle;
-}
-
-.can.upg:hover {
-	z-index: 2
-}
-
-.can.buyable:hover {
-	z-index: 2
-}
-
-.back {
+.popup-container {
 	position: absolute;
-	top: 0;
-	left: 0;
+	z-index: 9999999999999999999999999999999999;
+	right: 30px;
+	width: 300px;
+}
+
+.achievement-popup {
+	background: rgba(0,255,255,.15);
+	border-color: var(--points);
+	box-shadow: 0 0 10px var(--points);
+}
+
+.milestone-popup {
+	background: rgba(255,191,0,.15);
+	border-color: var(--warning);
+	box-shadow: 0 0 10px var(--warning);
+}
+
+.fade-enter-active,
+.fade-leave-active,
+.fade-transition {
+	transition: opacity .3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+	opacity: 0;
+}
+
+.redtext {
+	color: var(--error);
+	text-shadow: 0 0 5px var(--error);
+}
+
+.particle {
 	background-color: transparent;
-	border: 1px solid transparent;
-	color: var(--color);
-	font-size: 40px;
-	cursor: pointer;
-}
-
-.other-back {
+	display: block;
 	position: absolute;
-	top: 0;
-	left: 60px;
-	background-color: transparent;
-	border: 1px solid transparent;
-	color: var(--color);
-	font-size: 60px;
-	cursor: pointer;
+	z-index: 99999;
+	background-size: contain;
 }
-
-.back:hover {
-	transform: scale(1.1, 1.1);
-	text-shadow: 0 0 7px var(--color);
-}
-
-.hidden {
-	visibility: hidden;
-	height: 50px !important;
-}
-
-.canvas {
-	top: 0;
-	left: 0;
-	position: absolute;
-	z-index: -999;
-}
-
-.left {
-	position: absolute;
-	left: 0;
-}
-
-.remove {
-	height: 24px;
-	width: 24px;
-	cursor: pointer;
-}
-
-.remove:hover {
-	transform: scale(1.1, 1.1);
-}
-
-.col {
-	min-width: 49.5%;
-	max-width: 49.5%;
-	width: 49.5%;
-	height: 100%;
-	min-height: 100%;
-	column-span: 1;
-	position: absolute;
-	overflow-y: auto;
-	overflow-x: auto;
-	transition-duration: 0s
-}
-
-.instant {
-	transition-duration: 0s !important
-}
-
-.fast {
-	transition:color none
-}
-
-.col.right {
-	top: 0;
-	right: 0;
-}
-
-#app {
-	column-count: 2;
-	column-width: 50%;
-	min-height: 100%;
-}
-
-.vl2 {
-	border-left: 3px solid var(--color);
-	height: 100%;
-}
-
-ul {
-	list-style-type: none;
-}
-
-.fullWidth {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	min-width: 100%;
-	overflow-y: auto;
-	overflow-x: auto;
-	transition-duration: 0s
-}
-
-.tooltipBox { 
-	position: relative;
-  }
-  
-  .tooltipBox:hover .tooltip{
-	opacity: 1;
-  }
-
-  .forceTooltip .tooltip{
-	opacity: 1;
-  }
-  
-.respecCheckbox {
-	display: inline-block;
-}
-
-
-#loadingSection {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-.treeOverlay {
-	pointer-events:none;
-	overflow:hidden;
-}
-
-.front {
-	z-index: 30000
-}
-
-.overlayThing {
-	z-index: 10000;
-	pointer-events:auto;
-}
-
-.sideLayers {
-	z-index: 10000;
-	pointer-events:auto;
-	position: absolute;
-	right: 55px;
-	top: 65px;
-	background-color: transparent;
-}
-
-button > * {
-	pointer-events:none;
-}
-
-.ghost {
-	visibility: hidden
-}
-
-#treeTab td button {
-    margin: 0 10px;
-}
-
-.bg {
-	z-index: -9000;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	background-color: transparent;
-	top: 0
-}
-
-.bg2 {
-	z-index: -9009;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0
-}
-
-.noBackground {
-	background: transparent !important;
-	background-image: none !important;
-	--background: transparent !important;
-}
-
