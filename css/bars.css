@@ -1,38 +1,83 @@
 .barBase {
 	overflow: hidden;
 	-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
-	display:table
+	display: table;
+	position: relative;
 }
 
 .barBorder {
-	border: 2px solid;
-	border-radius: 10px;
-	border-color: var(--color);
+	border: 2px solid var(--color);
+	border-radius: 4px;
 	overflow: hidden;
 	-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
-	margin:0
+	margin: 0;
+	position: relative;
+	box-shadow:
+		0 0 4px var(--color),
+		inset 0 0 4px var(--color);
 }
 
 .overlayTextContainer {
 	z-index: 3;
-	border-radius: 10px;
+	border-radius: 4px;
 	vertical-align: middle;
 	display: flex;
 	justify-content: center;
-	align-items: left;
+	align-items: center;
 	position: absolute;
+	inset: 0;
+	pointer-events: none;
 }
 
 .fill {
 	background-color: var(--color);
-	z-index:2;
-    position: absolute;
+	z-index: 2;
+	position: absolute;
 	overflow: hidden;
 	margin-left: -0.5px;
 	transition-duration: 0.2s;
-
+	box-shadow:
+		0 0 6px var(--color),
+		0 0 12px var(--color);
 }
 
+/* Makes the milestone text appear above the corrupted bar */
 .overlayText {
 	z-index: 6;
+	position: relative;
+	font-family: monospace;
+	letter-spacing: 1px;
+	text-shadow:
+		1px 0 #ff004c,
+		-1px 0 #00ffff;
+}
+
+/* ERROR / TIMELINE corruption effect */
+.barBorder::before {
+	content: "ERROR";
+	position: absolute;
+	z-index: 5;
+	left: 4px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-family: monospace;
+	font-size: 8px;
+	opacity: 0.25;
+	color: #ff004c;
+	pointer-events: none;
+}
+
+/* Random-looking scanline effect */
+.barBorder::after {
+	content: "";
+	position: absolute;
+	z-index: 4;
+	inset: 0;
+	background: repeating-linear-gradient(
+		to bottom,
+		transparent 0px,
+		transparent 3px,
+		rgba(255,255,255,0.06) 4px
+	);
+	pointer-events: none;
 }
