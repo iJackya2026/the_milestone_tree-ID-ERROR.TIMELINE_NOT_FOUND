@@ -1,6 +1,7 @@
+```css
 .barBase {
 	overflow: hidden;
-	-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+	-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTd2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
 	display: table;
 	position: relative;
 }
@@ -9,7 +10,7 @@
 	border: 2px solid var(--color);
 	border-radius: 4px;
 	overflow: hidden;
-	-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+	-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTd2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
 	margin: 0;
 	position: relative;
 	box-shadow:
@@ -41,14 +42,15 @@
 		0 0 12px var(--color);
 }
 
-/* Makes the milestone text appear above the corrupted bar */
+/* Makes the timeline text appear above the corrupted bar */
 .overlayText {
 	z-index: 6;
 	position: relative;
 	font-family: monospace;
 	letter-spacing: 1px;
+	color: #ffffff;
 	text-shadow:
-		1px 0 #ff004c,
+		1px 0 #ff3b81,
 		-1px 0 #00ffff;
 }
 
@@ -62,12 +64,14 @@
 	transform: translateY(-50%);
 	font-family: monospace;
 	font-size: 8px;
+	letter-spacing: 1px;
 	opacity: 0.25;
-	color: #ff004c;
+	color: #ff3b81;
 	pointer-events: none;
+	text-shadow: 0 0 4px #ff3b81;
 }
 
-/* Random-looking scanline effect */
+/* Corrupted timeline scanline effect */
 .barBorder::after {
 	content: "";
 	position: absolute;
@@ -81,3 +85,4 @@
 	);
 	pointer-events: none;
 }
+```
